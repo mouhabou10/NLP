@@ -223,22 +223,22 @@ HTML = f"""<!DOCTYPE html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 :root{{
-  --orange:#F4801F;--orange-light:#ff9a45;--dark:#0d0d14;--dark2:#13131f;
-  --dark3:#1a1a2e;--card:#16162a;--border:rgba(244,128,31,0.15);
+  --purple:#6C2BDB;--pink:#E91E8C;--purple-light:#9B59F5;--dark:#0a0812;--dark2:#110d1a;
+  --dark3:#160e2a;--card:#130d22;--border:rgba(108,43,219,0.22);
   --text:#e8e8f0;--muted:#7070a0;--green:#2ecc71;--red:#e74c3c;
   --yellow:#f39c12;--blue:#3498db;
 }}
 *{{margin:0;padding:0;box-sizing:border-box;}}
 body{{background:var(--dark);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden;}}
-body::before{{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(244,128,31,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(244,128,31,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0;}}
+body::before{{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(108,43,219,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(108,43,219,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0;}}
 .sidebar{{position:fixed;left:0;top:0;bottom:0;width:220px;background:var(--dark2);border-right:1px solid var(--border);display:flex;flex-direction:column;padding:24px 0;z-index:100;transition:transform 0.3s ease;}}
 .logo{{padding:0 24px 28px;border-bottom:1px solid var(--border);}}
-.logo-text{{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--orange);letter-spacing:-0.5px;}}
+.logo-text{{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:#a855f7;letter-spacing:-0.5px;}}
 .logo-sub{{font-size:11px;color:var(--muted);margin-top:2px;}}
 .nav{{padding:20px 12px;flex:1;}}
 .nav-item{{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;cursor:pointer;font-size:13px;font-weight:500;color:var(--muted);transition:all 0.2s;margin-bottom:4px;border:1px solid transparent;}}
-.nav-item:hover{{background:rgba(244,128,31,0.08);color:var(--text);}}
-.nav-item.active{{background:rgba(244,128,31,0.12);color:var(--orange);border-color:var(--border);}}
+.nav-item:hover{{background:rgba(108,43,219,0.1);color:var(--text);}}
+.nav-item.active{{background:rgba(108,43,219,0.12);color:#a855f7;border-color:var(--border);}}
 .nav-item .icon{{font-size:16px;width:20px;text-align:center;}}
 .nav-section-label{{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);padding:16px 14px 6px;}}
 .sidebar-footer{{padding:16px 24px;border-top:1px solid var(--border);font-size:11px;color:var(--muted);line-height:1.6;}}
@@ -247,21 +247,21 @@ body::before{{content:'';position:fixed;inset:0;background-image:linear-gradient
 .page.active{{display:block;}}
 @keyframes fadeUp{{from{{opacity:0;transform:translateY(16px)}}to{{opacity:1;transform:translateY(0)}}}}
 .page-header{{margin-bottom:32px;}}
-.page-title{{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;line-height:1.1;background:linear-gradient(135deg,#fff 0%,var(--orange) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}}
+.page-title{{font-family:'Syne',sans-serif;font-size:32px;font-weight:800;line-height:1.1;background:linear-gradient(135deg,#fff 30%,#E91E8C 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}}
 .page-sub{{color:var(--muted);font-size:14px;margin-top:6px;}}
 .filter-bar{{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;padding:14px 18px;background:var(--card);border-radius:14px;border:1px solid var(--border);}}
 .filter-label{{font-size:12px;color:var(--muted);align-self:center;margin-right:4px;}}
 .filter-btn{{padding:6px 14px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:12px;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all 0.2s;}}
-.filter-btn:hover{{border-color:var(--orange);color:var(--text);}}
-.filter-btn.active{{background:var(--orange);border-color:var(--orange);color:#fff;font-weight:600;}}
+.filter-btn:hover{{border-color:#a855f7;color:var(--text);}}
+.filter-btn.active{{background:linear-gradient(135deg,var(--purple),var(--pink));border-color:#a855f7;color:#fff;font-weight:600;}}
 .kpi-grid{{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:28px;}}
 .kpi-card{{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px 18px;position:relative;overflow:hidden;transition:transform 0.2s,border-color 0.2s;}}
-.kpi-card:hover{{transform:translateY(-3px);border-color:rgba(244,128,31,0.4);}}
+.kpi-card:hover{{transform:translateY(-3px);border-color:rgba(108,43,219,0.45);}}
 .kpi-card::before{{content:'';position:absolute;top:0;left:0;right:0;height:3px;}}
-.kpi-card.orange::before{{background:var(--orange);}}.kpi-card.green::before{{background:var(--green);}}.kpi-card.red::before{{background:var(--red);}}.kpi-card.blue::before{{background:var(--blue);}}.kpi-card.yellow::before{{background:var(--yellow);}}
+.kpi-card.orange::before{{background:linear-gradient(90deg,var(--purple),var(--pink));}}.kpi-card.green::before{{background:var(--green);}}.kpi-card.red::before{{background:var(--red);}}.kpi-card.blue::before{{background:var(--blue);}}.kpi-card.yellow::before{{background:var(--yellow);}}
 .kpi-label{{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:8px;}}
 .kpi-value{{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;line-height:1;}}
-.kpi-card.orange .kpi-value{{color:var(--orange)}}.kpi-card.green .kpi-value{{color:var(--green)}}.kpi-card.red .kpi-value{{color:var(--red)}}.kpi-card.blue .kpi-value{{color:var(--blue)}}.kpi-card.yellow .kpi-value{{color:var(--yellow)}}
+.kpi-card.orange .kpi-value{{color:#a855f7}}.kpi-card.green .kpi-value{{color:var(--green)}}.kpi-card.red .kpi-value{{color:var(--red)}}.kpi-card.blue .kpi-value{{color:var(--blue)}}.kpi-card.yellow .kpi-value{{color:var(--yellow)}}
 .kpi-delta{{font-size:11px;color:var(--muted);margin-top:6px;}}
 .chart-grid-2{{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px;}}
 .chart-grid-3{{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:20px;}}
@@ -269,20 +269,20 @@ body::before{{content:'';position:fixed;inset:0;background-image:linear-gradient
 .chart-grid-13{{display:grid;grid-template-columns:1fr 2fr;gap:20px;margin-bottom:20px;}}
 .chart-grid-31{{display:grid;grid-template-columns:2fr 1fr;gap:20px;margin-bottom:20px;}}
 .chart-card{{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;transition:border-color 0.2s;}}
-.chart-card:hover{{border-color:rgba(244,128,31,0.3);}}
+.chart-card:hover{{border-color:rgba(108,43,219,0.35);}}
 .chart-card-header{{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;}}
 .chart-card-title{{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--text);}}
 .chart-card-sub{{font-size:11px;color:var(--muted);margin-top:3px;}}
-.chart-badge{{font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(244,128,31,0.1);color:var(--orange);border:1px solid rgba(244,128,31,0.2);white-space:nowrap;}}
+.chart-badge{{font-size:10px;padding:3px 8px;border-radius:10px;background:rgba(108,43,219,0.1);color:#a855f7;border:1px solid rgba(108,43,219,0.25);white-space:nowrap;}}
 .chart-container{{position:relative;}}
-.insight-box{{background:rgba(244,128,31,0.06);border:1px solid rgba(244,128,31,0.2);border-radius:12px;padding:14px 18px;font-size:12.5px;color:#c0c0d8;line-height:1.7;margin-top:14px;}}
-.insight-box strong{{color:var(--orange);}}
+.insight-box{{background:rgba(108,43,219,0.06);border:1px solid rgba(108,43,219,0.25);border-radius:12px;padding:14px 18px;font-size:12.5px;color:#c0c0d8;line-height:1.7;margin-top:14px;}}
+.insight-box strong{{color:#a855f7;}}
 .wordcloud-container{{display:flex;flex-wrap:wrap;gap:8px;padding:16px;align-items:center;justify-content:center;min-height:200px;}}
 .wc-word{{cursor:default;border-radius:6px;padding:4px 10px;transition:transform 0.2s,opacity 0.2s;font-family:'Syne',sans-serif;font-weight:700;}}
 .wc-word:hover{{transform:scale(1.15);opacity:0.9;}}
 .review-list{{display:flex;flex-direction:column;gap:12px;}}
 .review-item{{background:var(--dark3);border:1px solid var(--border);border-radius:12px;padding:16px;transition:border-color 0.2s;}}
-.review-item:hover{{border-color:rgba(244,128,31,0.35);}}
+.review-item:hover{{border-color:rgba(108,43,219,0.4);}}
 .review-meta{{display:flex;align-items:center;gap:10px;margin-bottom:8px;}}
 .review-stars{{color:var(--yellow);font-size:13px;}}.review-stars.neg{{color:var(--red);}}
 .review-author{{font-size:12px;color:var(--muted);}}.review-date{{font-size:11px;color:var(--muted);margin-left:auto;}}
@@ -293,9 +293,9 @@ body::before{{content:'';position:fixed;inset:0;background-image:linear-gradient
 .lang-bar-track{{background:rgba(255,255,255,0.06);border-radius:4px;height:8px;overflow:hidden;}}
 .lang-bar-fill{{height:100%;border-radius:4px;transition:width 1s ease;}}
 .timeline-item{{display:flex;gap:16px;padding:10px 0;border-bottom:1px solid var(--border);align-items:center;}}
-.timeline-year{{font-family:'Syne',sans-serif;font-weight:800;font-size:16px;color:var(--orange);min-width:46px;}}
+.timeline-year{{font-family:'Syne',sans-serif;font-weight:800;font-size:16px;color:#a855f7;min-width:46px;}}
 .timeline-bar-wrap{{flex:1;display:flex;align-items:center;gap:10px;}}
-.timeline-bar{{height:18px;border-radius:4px;background:linear-gradient(90deg,var(--orange),var(--orange-light));transition:width 1.2s ease;min-width:2px;}}
+.timeline-bar{{height:18px;border-radius:4px;background:linear-gradient(90deg,var(--purple),var(--purple-light));transition:width 1.2s ease;min-width:2px;}}
 .timeline-count{{font-size:11px;color:var(--muted);white-space:nowrap;}}
 .donut-wrap{{position:relative;}}
 .donut-center{{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none;}}
@@ -308,7 +308,7 @@ body::before{{content:'';position:fixed;inset:0;background-image:linear-gradient
 @media(max-width:1200px){{.kpi-grid{{grid-template-columns:repeat(3,1fr)}}.chart-grid-3{{grid-template-columns:1fr 1fr}}}}
 @media(max-width:900px){{.sidebar{{transform:translateX(-220px)}}.sidebar.open{{transform:translateX(0)}}.main{{margin-left:0;padding:20px 16px;padding-top:60px;}}.hamburger{{display:block}}.overlay.show{{display:block}}.chart-grid-2,.chart-grid-13,.chart-grid-31{{grid-template-columns:1fr}}.kpi-grid{{grid-template-columns:repeat(2,1fr)}}.page-title{{font-size:24px}}}}
 @media(max-width:500px){{.kpi-grid{{grid-template-columns:1fr 1fr}}.chart-grid-3{{grid-template-columns:1fr}}}}
-::-webkit-scrollbar{{width:6px}}::-webkit-scrollbar-track{{background:var(--dark2)}}::-webkit-scrollbar-thumb{{background:var(--border);border-radius:3px}}
+::-webkit-scrollbar{{width:6px}}::-webkit-scrollbar-track{{background:var(--dark2)}}::-webkit-scrollbar-thumb{{background:rgba(108,43,219,0.4);border-radius:3px}}
 </style>
 </head>
 <body>
@@ -520,7 +520,7 @@ body::before{{content:'';position:fixed;inset:0;background-image:linear-gradient
     </div>
   </div>
   <div class="chart-grid-1 animate-in" style="transition-delay:0.1s">
-    <div class="chart-card" style="background:linear-gradient(135deg,var(--card) 0%,rgba(244,128,31,0.05) 100%)">
+    <div class="chart-card" style="background:linear-gradient(135deg,var(--card) 0%,rgba(108,43,219,0.05) 100%)">
       <div class="chart-card-title" style="margin-bottom:20px;font-size:17px">🔍 Recommendations for Yassir</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px" id="rec-grid"></div>
     </div>
@@ -531,7 +531,7 @@ body::before{{content:'';position:fixed;inset:0;background-image:linear-gradient
 
 <script>
 const D = {data_json};
-const C = {{orange:'#F4801F',green:'#2ecc71',red:'#e74c3c',yellow:'#f39c12',blue:'#3498db',muted:'#7070a0',card:'#16162a',text:'#e8e8f0'}};
+const C = {{purple:'#6C2BDB',pink:'#E91E8C',green:'#2ecc71',red:'#e74c3c',yellow:'#f39c12',blue:'#3498db',muted:'#7070a0',card:'#16162a',text:'#e8e8f0'}};
 const CD = {{responsive:true,maintainAspectRatio:false,plugins:{{legend:{{labels:{{color:C.text,font:{{family:'DM Sans'}}}}}}}}}};
 
 function showPage(id){{
@@ -550,8 +550,8 @@ function toggleSidebar(force){{
 
 // ── OVERVIEW ──
 new Chart(document.getElementById('sentimentDonut'),{{type:'doughnut',data:{{labels:['Positive (4-5★)','Neutral (3★)','Negative (1-2★)'],datasets:[{{data:[D.meta.count_pos,D.meta.count_neu,D.meta.count_neg],backgroundColor:[C.green,C.yellow,C.red],borderWidth:3,borderColor:C.card,hoverOffset:8}}]}},options:{{...CD,cutout:'68%',plugins:{{...CD.plugins,tooltip:{{callbacks:{{label:ctx=>` ${{ctx.label}}: ${{ctx.raw.toLocaleString()}} (${{(ctx.raw/D.meta.total*100).toFixed(1)}}%)`}}}}}}}}}});
-new Chart(document.getElementById('yearlyBar'),{{type:'bar',data:{{labels:D.yearly.labels,datasets:[{{data:D.yearly.counts,backgroundColor:D.yearly.counts.map((v,i)=>i===D.yearly.counts.indexOf(Math.max(...D.yearly.counts))?C.orange:'rgba(244,128,31,0.35)'),borderRadius:6,borderSkipped:false}}]}},options:{{...CD,plugins:{{...CD.plugins,legend:{{display:false}}}},scales:{{x:{{grid:{{color:'rgba(255,255,255,0.04)'}},ticks:{{color:C.muted}}}},y:{{grid:{{color:'rgba(255,255,255,0.04)'}},ticks:{{color:C.muted}}}}}}}}}});
-new Chart(document.getElementById('monthlyLine'),{{type:'line',data:{{labels:D.monthly.labels,datasets:[{{data:D.monthly.all,label:'Reviews',borderColor:C.orange,backgroundColor:'rgba(244,128,31,0.1)',fill:true,tension:0.4,pointRadius:0}}]}},options:{{...CD,plugins:{{...CD.plugins,legend:{{display:false}}}},scales:{{x:{{grid:{{display:false}},ticks:{{color:C.muted,maxTicksLimit:8}}}},y:{{grid:{{color:'rgba(255,255,255,0.04)'}},ticks:{{color:C.muted}}}}}}}}}});
+new Chart(document.getElementById('yearlyBar'),{{type:'bar',data:{{labels:D.yearly.labels,datasets:[{{data:D.yearly.counts,backgroundColor:D.yearly.counts.map((v,i)=>i===D.yearly.counts.indexOf(Math.max(...D.yearly.counts))?C.purple:'rgba(108,43,219,0.35)'),borderRadius:6,borderSkipped:false}}]}},options:{{...CD,plugins:{{...CD.plugins,legend:{{display:false}}}},scales:{{x:{{grid:{{color:'rgba(255,255,255,0.04)'}},ticks:{{color:C.muted}}}},y:{{grid:{{color:'rgba(255,255,255,0.04)'}},ticks:{{color:C.muted}}}}}}}}}});
+new Chart(document.getElementById('monthlyLine'),{{type:'line',data:{{labels:D.monthly.labels,datasets:[{{data:D.monthly.all,label:'Reviews',borderColor:C.purple,backgroundColor:'rgba(108,43,219,0.1)',fill:true,tension:0.4,pointRadius:0}}]}},options:{{...CD,plugins:{{...CD.plugins,legend:{{display:false}}}},scales:{{x:{{grid:{{display:false}},ticks:{{color:C.muted,maxTicksLimit:8}}}},y:{{grid:{{color:'rgba(255,255,255,0.04)'}},ticks:{{color:C.muted}}}}}}}}}});
 new Chart(document.getElementById('ratingBarOverview'),{{type:'bar',indexAxis:'y',data:{{labels:['1★','2★','3★','4★','5★'],datasets:[{{data:D.rating_all,backgroundColor:[C.red,'#e67e22',C.yellow,'#27ae60',C.green],borderRadius:5,borderSkipped:false}}]}},options:{{...CD,plugins:{{...CD.plugins,legend:{{display:false}}}},scales:{{x:{{grid:{{color:'rgba(255,255,255,0.04)'}},ticks:{{color:C.muted}}}},y:{{grid:{{display:false}},ticks:{{color:C.text}}}}}}}}}});
 
 // ── RATINGS ──
@@ -560,7 +560,7 @@ Object.keys(D.rating_by_year).forEach(yr=>{{const b=document.createElement('butt
 let ratingBarChart=new Chart(document.getElementById('ratingBarDetail'),{{type:'bar',data:{{labels:['1★','2★','3★','4★','5★'],datasets:[{{data:D.rating_all,backgroundColor:[C.red,'#e67e22',C.yellow,'#27ae60',C.green],borderRadius:8,borderSkipped:false}}]}},options:{{...CD,plugins:{{...CD.plugins,legend:{{display:false}}}},scales:{{x:{{grid:{{display:false}},ticks:{{color:C.text,font:{{size:14,weight:'bold'}}}}}},y:{{grid:{{color:'rgba(255,255,255,0.04)'}},ticks:{{color:C.muted}}}}}},animation:{{duration:600,easing:'easeOutQuart'}}}}}});
 let sentPie=new Chart(document.getElementById('sentimentPie'),{{type:'pie',data:{{labels:['Positive','Neutral','Negative'],datasets:[{{data:[D.meta.count_pos,D.meta.count_neu,D.meta.count_neg],backgroundColor:[C.green,C.yellow,C.red],borderWidth:3,borderColor:C.card,hoverOffset:10}}]}},options:{{...CD,plugins:{{...CD.plugins,tooltip:{{callbacks:{{label:ctx=>` ${{ctx.label}}: ${{(ctx.raw/D.meta.total*100).toFixed(1)}}%`}}}}}}}}}});
 const rolling=D.monthly.avg_rating.map((v,i,a)=>i===0||i===a.length-1?v:+((a[i-1]+v+a[i+1])/3).toFixed(2));
-new Chart(document.getElementById('ratingTrend'),{{type:'line',data:{{labels:D.monthly.labels,datasets:[{{label:'Monthly avg',data:D.monthly.avg_rating,borderColor:'rgba(255,255,255,0.2)',fill:false,tension:0.4,pointRadius:0}},{{label:'3-month rolling',data:rolling,borderColor:C.orange,borderWidth:2.5,fill:false,tension:0.4,pointRadius:0}},{{label:'Overall avg',data:D.monthly.labels.map(()=>D.meta.avg_rating),borderColor:C.red,borderDash:[6,3],borderWidth:1.5,pointRadius:0,fill:false}}]}},options:{{...CD,scales:{{x:{{grid:{{display:false}},ticks:{{color:C.muted,maxTicksLimit:8}}}},y:{{min:1,max:5,grid:{{color:'rgba(255,255,255,0.04)'}},ticks:{{color:C.muted}}}}}}}}}});
+new Chart(document.getElementById('ratingTrend'),{{type:'line',data:{{labels:D.monthly.labels,datasets:[{{label:'Monthly avg',data:D.monthly.avg_rating,borderColor:'rgba(255,255,255,0.2)',fill:false,tension:0.4,pointRadius:0}},{{label:'3-month rolling',data:rolling,borderColor:C.purple,borderWidth:2.5,fill:false,tension:0.4,pointRadius:0}},{{label:'Overall avg',data:D.monthly.labels.map(()=>D.meta.avg_rating),borderColor:C.red,borderDash:[6,3],borderWidth:1.5,pointRadius:0,fill:false}}]}},options:{{...CD,scales:{{x:{{grid:{{display:false}},ticks:{{color:C.muted,maxTicksLimit:8}}}},y:{{min:1,max:5,grid:{{color:'rgba(255,255,255,0.04)'}},ticks:{{color:C.muted}}}}}}}}}});
 
 function filterRatings(yr,btn){{
   document.querySelectorAll('#page-ratings .filter-btn').forEach(b=>b.classList.remove('active'));
@@ -574,13 +574,13 @@ function filterRatings(yr,btn){{
 }}
 
 // ── TRENDS ──
-let trendChart=new Chart(document.getElementById('trendLine'),{{type:'line',data:{{labels:D.monthly.labels,datasets:[{{label:'All Reviews',data:D.monthly.all,borderColor:C.orange,backgroundColor:'rgba(244,128,31,0.12)',fill:true,tension:0.4,pointRadius:2,pointHoverRadius:6}}]}},options:{{...CD,scales:{{x:{{grid:{{display:false}},ticks:{{color:C.muted,maxTicksLimit:10}}}},y:{{grid:{{color:'rgba(255,255,255,0.04)'}},ticks:{{color:C.muted}}}}}}}}}});
+let trendChart=new Chart(document.getElementById('trendLine'),{{type:'line',data:{{labels:D.monthly.labels,datasets:[{{label:'All Reviews',data:D.monthly.all,borderColor:C.purple,backgroundColor:'rgba(108,43,219,0.12)',fill:true,tension:0.4,pointRadius:2,pointHoverRadius:6}}]}},options:{{...CD,scales:{{x:{{grid:{{display:false}},ticks:{{color:C.muted,maxTicksLimit:10}}}},y:{{grid:{{color:'rgba(255,255,255,0.04)'}},ticks:{{color:C.muted}}}}}}}}}});
 function switchTrend(t){{
   document.querySelectorAll('#page-trends .filter-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('trend-'+t).classList.add('active');
-  const map={{all:{{d:D.monthly.all,c:C.orange,l:'All Reviews'}},pos:{{d:D.monthly.pos,c:C.green,l:'Positive'}},neg:{{d:D.monthly.neg,c:C.red,l:'Negative'}}}};
+  const map={{all:{{d:D.monthly.all,c:C.purple,l:'All Reviews'}},pos:{{d:D.monthly.pos,c:C.green,l:'Positive'}},neg:{{d:D.monthly.neg,c:C.red,l:'Negative'}}}};
   const m=map[t]; trendChart.data.datasets[0].data=m.d; trendChart.data.datasets[0].borderColor=m.c;
-  trendChart.data.datasets[0].backgroundColor=m.c.replace('rgb','rgba').replace(')',',0.12)');
+  trendChart.data.datasets[0].backgroundColor=m.c+'33';
   trendChart.data.datasets[0].label=m.l; trendChart.update();
 }}
 (()=>{{
@@ -592,15 +592,15 @@ function switchTrend(t){{
   }}).join('');
   setTimeout(()=>tl.querySelectorAll('.timeline-bar').forEach(b=>b.style.width=b.dataset.w+'%'),400);
 }})();
-new Chart(document.getElementById('heatmapChart'),{{type:'bubble',data:{{datasets:[{{data:D.heatmap.data,backgroundColor:ctx=>{{const v=ctx.raw.v;const a=Math.min(0.9,0.1+v/300);return `rgba(244,128,31,${{a}})`;}},borderColor:'rgba(244,128,31,0.3)',borderWidth:1}}]}},options:{{...CD,plugins:{{...CD.plugins,legend:{{display:false}},tooltip:{{callbacks:{{label:ctx=>`${{D.heatmap.month_labels[ctx.raw.y]}}, ${{D.heatmap.year_labels[ctx.raw.x]}}: ${{ctx.raw.v}} reviews`}}}}}},scales:{{x:{{min:-0.5,max:D.heatmap.year_labels.length-0.5,grid:{{display:false}},ticks:{{color:C.muted,callback:v=>D.heatmap.year_labels[v]||''}}}},y:{{min:-0.5,max:11.5,grid:{{color:'rgba(255,255,255,0.04)'}},ticks:{{color:C.muted,callback:v=>D.heatmap.month_labels[v]||''}}}}}}}}}});
+new Chart(document.getElementById('heatmapChart'),{{type:'bubble',data:{{datasets:[{{data:D.heatmap.data,backgroundColor:ctx=>{{const v=ctx.raw.v;const a=Math.min(0.9,0.1+v/300);return `rgba(108,43,219,${{a}})`;}},borderColor:'rgba(108,43,219,0.35)',borderWidth:1}}]}},options:{{...CD,plugins:{{...CD.plugins,legend:{{display:false}},tooltip:{{callbacks:{{label:ctx=>`${{D.heatmap.month_labels[ctx.raw.y]}}, ${{D.heatmap.year_labels[ctx.raw.x]}}: ${{ctx.raw.v}} reviews`}}}}}},scales:{{x:{{min:-0.5,max:D.heatmap.year_labels.length-0.5,grid:{{display:false}},ticks:{{color:C.muted,callback:v=>D.heatmap.year_labels[v]||''}}}},y:{{min:-0.5,max:11.5,grid:{{color:'rgba(255,255,255,0.04)'}},ticks:{{color:C.muted,callback:v=>D.heatmap.month_labels[v]||''}}}}}}}}}});
 
 // ── WORDS ──
 function renderCloud(type){{
   const words=D.words[type];const mx=words[0].count;
   const container=document.getElementById('wordcloud');container.innerHTML='';
-  const pc=['#2ecc71','#27ae60','#1abc9c','#16a085','#58d68d'];
+  const pc=['#2ecc71','#27ae60','#1abc9c','#a855f7','#58d68d'];
   const nc=['#e74c3c','#c0392b','#e67e22','#d35400','#ec407a'];
-  const ac=['#F4801F','#f39c12','#3498db','#2ecc71','#e74c3c','#9b59b6'];
+  const ac=['#6C2BDB','#E91E8C','#a855f7','#2ecc71','#e74c3c','#3498db'];
   words.forEach((w,i)=>{{
     const size=12+(w.count/mx)*28;
     const colors=type==='pos'?pc:type==='neg'?nc:ac;
@@ -647,7 +647,7 @@ document.getElementById('rec-grid').innerHTML=[
   {{icon:'🇩🇿',title:'Arabic Support',text:'Arabic reviewers are an underserved segment. Prioritize Arabic UI and dedicated customer support.'}},
   {{icon:'📊',title:'Monthly Monitoring',text:'Build an internal dashboard to track review sentiment monthly and catch issues before they escalate.'}},
   {{icon:'🤖',title:'NLP Next Steps',text:'Train a multilingual sentiment classifier. Aspect-based analysis for drivers, pricing, and bugs.'}}
-].map(r=>`<div class="chart-card" style="padding:16px"><div style="font-size:22px;margin-bottom:8px">${{r.icon}}</div><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:13px;margin-bottom:6px;color:var(--orange)">${{r.title}}</div><div style="font-size:12px;color:#c0c0d8;line-height:1.6">${{r.text}}</div></div>`).join('');
+].map(r=>`<div class="chart-card" style="padding:16px"><div style="font-size:22px;margin-bottom:8px">${{r.icon}}</div><div style="font-family:'Syne',sans-serif;font-weight:700;font-size:13px;margin-bottom:6px;color:#a855f7">${{r.title}}</div><div style="font-size:12px;color:#c0c0d8;line-height:1.6">${{r.text}}</div></div>`).join('');
 
 // ── INIT ANIMATIONS ──
 setTimeout(()=>document.querySelectorAll('#page-overview .animate-in').forEach((el,i)=>setTimeout(()=>el.classList.add('visible'),i*100)),100);
